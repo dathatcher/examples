@@ -18,7 +18,7 @@ jobs:
         kubectl create -f redis-master-deployment.yaml
         kubectl get pods
         cat redis-master-service.yaml
-        kubectl create -f redis-m
+        kubectl create -f redis-master-service.yaml
         aster-service.yaml
         kubectl get service
         cat redis-slave-deployment.yaml
