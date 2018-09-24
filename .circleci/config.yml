@@ -12,13 +12,11 @@ jobs:
         gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
         gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
         gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
-        ls
-        kubectl --help
-       # cd examples/guestbook
-       # gcloud container clusters get-credentials ${GOOGLE_KUBER_NAME} --zone ${GOOGLE_COMPUTE_ZONE}        
-       # cat redis-master-deployment.yaml
-       # kubectl create -f redis-master-deployment.yaml
-       # kubectl get pods
+        cd examples/guestbook
+        gcloud container clusters get-credentials ${GOOGLE_KUBER_NAME} --zone ${GOOGLE_COMPUTE_ZONE}        
+        cat redis-master-deployment.yaml
+        kubectl create -f redis-master-deployment.yaml
+        kubectl get pods
 workflows:
   version: 2
   workflow:
