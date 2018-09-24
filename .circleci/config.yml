@@ -17,6 +17,20 @@ jobs:
         cat redis-master-deployment.yaml
         kubectl create -f redis-master-deployment.yaml
         kubectl get pods
+        cat redis-master-service.yaml
+        kubectl create -f redis-m
+        aster-service.yaml
+        kubectl get service
+        cat redis-slave-deployment.yaml
+        kubectl create -f redis-slave-deployment.yaml
+        kubectl get pods
+        cat redis-slave-service.yaml
+        kubectl create -f redis-slave-service.yaml
+        kubectl get service
+        kubectl create -f frontend-deployment.yaml
+        sed -i -e 's/NodePort/LoadBalancer/g' frontend-service.yaml
+        kubectl create -f frontend-service.yaml
+        kubectl get services --watch
 workflows:
   version: 2
   workflow:
